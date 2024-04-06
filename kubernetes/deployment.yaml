@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunrise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sunrise
+  template:
+    metadata:
+      labels:
+        app: sunrise
+    spec:
+      containers:
+      - name: sunrise
+        image: public.ecr.aws/h5v6c9w1/sunrise:latest
+        ports:
+        - containerPort: 8000
