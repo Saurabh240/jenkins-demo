@@ -1,13 +1,13 @@
 pipeline {
 	agent any
     
-	stages {
-    	stage('Checkout') {
-        	steps {
-            	// Checkout code from Git repository
-            	url: 'https://github.com/roeeelnekave/sunrise.git'
-        	}
-    	}
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from Git repository
+                git branch: 'main', url: 'https://github.com/roeeelnekave/sunrise.git'
+            }
+        }
     	stage('Build Docker Image') {
         	steps {
             	// Build Docker image
