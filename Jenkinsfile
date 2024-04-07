@@ -5,7 +5,7 @@ pipeline {
     	stage('Checkout') {
         	steps {
             	// Checkout code from Git repository
-            	git credentialsId: credentials('roeeelnekave'), url: 'https://github.com/roeeelnekave/sunrise.git'
+            	url: 'https://github.com/roeeelnekave/sunrise.git'
         	}
     	}
     	stage('Build Docker Image') {
