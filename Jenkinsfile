@@ -5,14 +5,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Initialize workspace as Git repository and checkout code
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/roeeelnekave/sunrise.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Saurabh240/sunrise.git']]])
             }
         }
         stage('Build Docker Image') {
             steps {
                 // Build Docker image
                 script {
-                    docker.build('roeeel/sunrise:latest')
+                    docker.build('saurabh896/sunrise:latest')
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Run tests inside Docker container
                 script {
-                    docker.image('roeeel/sunrise:latest').inside {
+                    docker.image('saurabh896/sunrise:latest').inside {
                         sh 'python -m unittest discover tests'
                     }
                 }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 // Generate artifacts (e.g., Docker image)
                 script {
-                    docker.image('roeeel/sunrise:latest').push('https://registry.hub.docker.com/roeeel/sunrise:latest')
+                    docker.image('saurabh896/sunrise:latest').push('https://registry.hub.docker.com/saurabh896/sunrise:latest')
                 }
             }
         }
