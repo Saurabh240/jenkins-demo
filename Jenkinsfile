@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:19.03.13' // Specify the Docker image to use
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket for Docker inside Docker
+        }
+    }
     
     stages {
         stage('Checkout') {
