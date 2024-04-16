@@ -6,17 +6,17 @@ pipeline {
     }
     
     stages {
-        stage('Build') {
-            steps {
-                // Build Docker image (if needed)
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         // Build Docker image (if needed)
+        //     }
+        // }
         
-        stage('Test') {
-            steps {
-                // Run tests (if needed)
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         // Run tests (if needed)
+        //     }
+        // }
         
         stage('Deploy') {
             steps {
