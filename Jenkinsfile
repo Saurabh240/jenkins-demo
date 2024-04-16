@@ -1,14 +1,28 @@
 pipeline {
-    agent {
-        docker {
-            image 'docker:19.03.13'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
+    agent any
+    
+    environment {
+        KUBECONFIG = credentials('kubeconfig-credentials')
     }
+    
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t saurabh896/sunrise:latest .'
+                // Build Docker image (if needed)
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Run tests (if needed)
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Apply Kubernetes manifests
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
             }
         }
     }
