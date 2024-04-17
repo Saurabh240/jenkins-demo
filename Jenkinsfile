@@ -21,8 +21,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Apply Kubernetes manifests
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
+                sh 'kubectl apply -f kubernetes/deployment.yaml'
+                sh 'kubectl apply -f kubernetes/service.yaml'
             }
         }
     }
